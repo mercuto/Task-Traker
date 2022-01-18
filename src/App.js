@@ -1,4 +1,3 @@
-import "./App.css";
 import { useState } from "react";
 
 import Header from "./component/Header";
@@ -62,10 +61,12 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="container">
       <Header title="Task Tracker" onAddToggle={toggleAddTask} showAddTask={showAddTask}/>
-      {showAddTask ? <AddTask onAdd={addTask}/> : null}
-      {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : "No Pending Task"}      
+      <div className="task-body">
+        {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : "No Pending Task"}      
+        {showAddTask ? <AddTask onAdd={addTask}/> : null}
+      </div>
     </div>
   );
 }
